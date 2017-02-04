@@ -1,0 +1,32 @@
+<html>
+	<head>
+		"Heros and Villains"
+		<script type="text/javascript" src="script.js"></script>
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<script type="text/javascript" src="dragndrop.js"></script>
+
+	</head>
+	<body>
+		<button onclick="init()"> Refresh</button>
+		<div class = "container" id="top-row">
+			<img id="1" draggable="true" ondragstart="drag(event)">
+			<img id="2" draggable="true" ondragstart="drag(event)">
+			<img id="3" draggable="true" ondragstart="drag(event)">
+		</div>
+		<div class = "container" id="mid-row">
+			<img id="4" draggable="true" ondragstart="drag(event)">
+			<img id="5" draggable="true" ondragstart="drag(event)">
+			<img id="6" draggable="true" ondragstart="drag(event)">
+		</div>
+		<div class = "container" id="bot-row">
+			<img id="7" draggable="true" ondragstart="drag(event)">
+			<img id="8" draggable="true" ondragstart="drag(event)">
+			<img id="9" draggable="true" ondragstart="drag(event)">
+		</div>
+
+	<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)" ></div>
+<!-- <br>
+<img id="drag1" src="img_logo.gif" draggable="true" ondragstart="drag(event)" width="336" height="69"> -->
+
+	</body>
+</html>
