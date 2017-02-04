@@ -12,26 +12,33 @@ function init(){
 }
 
 function results(){
-	var A = [['Heroes','Villains']];
+	var name = document.getElementById("subject").value;
+	var set = document.getElementById("set").value;
+	if (name != "" && set != "" && (h_index + v_index == 9)) {
+		var A = [['Heroes','Villains','Subject:',name,'Set:',set]];
 
-	for(var j=0; j <= Math.max(h_index, v_index); ++j){ 
-		A.push([hero_arr[j],villain_arr[j]]);
+		for(var j=0; j <= Math.max(h_index, v_index); ++j){ 
+			A.push([hero_arr[j],villain_arr[j]]);
+		}
+
+		var csvRows = [];
+
+		for(var i=0, l=A.length; i<l; ++i){
+		    csvRows.push(A[i].join(','));
+		}
+
+		var csvString = csvRows.join("\n");
+		var a         = document.createElement('a');
+		a.href        = 'data:attachment/csv,' +  encodeURIComponent(csvString);
+		a.target      = '_blank';
+		a.download    =  name +'.csv';
+
+		document.body.appendChild(a);
+		a.click();
+	}else{
+		alert("Incomplete Form: Don't forget to enter subject name, set number or finish sorting");
 	}
 
-	var csvRows = [];
-
-	for(var i=0, l=A.length; i<l; ++i){
-	    csvRows.push(A[i].join(','));
-	}
-
-	var csvString = csvRows.join("\n");
-	var a         = document.createElement('a');
-	a.href        = 'data:attachment/csv,' +  encodeURIComponent(csvString);
-	a.target      = '_blank';
-	a.download    = 'myFile.csv';
-
-	document.body.appendChild(a);
-	a.click();
 }
 
 function make_list(){
